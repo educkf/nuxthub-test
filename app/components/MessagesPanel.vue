@@ -25,7 +25,8 @@ async function sendMessage (){
       </button>
     </form>
     <p v-for="message of messages" :key="message.id">
-      {{ message.text }} - {{ new Date(message.created_at).toLocaleString('fr-FR') }}
+      <div>{{ message.text }}</div>
+      <div>{{ new Date(message.createdAt).toLocaleString('pt-BR') }}</div>
     </p>
     <p v-if="!messages?.length">
       No messages yet
