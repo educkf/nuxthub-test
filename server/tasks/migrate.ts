@@ -8,14 +8,14 @@ export default defineTask({
   },
   async run() {
     try {
-      consola.info('Running DB seed task...')
+      consola.info(' Running DB seed task...')
       await migrate(useDrizzle(), { migrationsFolder: 'server/database/migrations' })
 
-      consola.success('DB mig task done...')
-      return { result: 'Database migrations done'}
+      consola.success(' DB mig task done...')
+      return { result: 'Database migrations done' }
 
     } catch (err) {
-      consola.error('DB mig task failed...', err)
+      consola.error(' DB mig task failed...', err)
       return { result: 'Database migrations failed', err }
     }
   }

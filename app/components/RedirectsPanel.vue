@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup lang="js">
 const { data: redirects, refresh } = await useFetch('/api/redirects', {
   transform: (data: { [key: string]: string }) => {
     // Transform to text for the textarea

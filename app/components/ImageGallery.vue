@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup lang="js">
 const { data: images, refresh } = await useFetch('/api/images')
 
 async function uploadImage (e: Event) {
@@ -6,7 +6,7 @@ async function uploadImage (e: Event) {
   const upload = useUpload('/api/images/upload', {
     multiple: false
   })
-  const form = e.target as HTMLFormElement
+  const form = e.target
   await upload(form.image)
     .then(async () => {
       form.reset()
@@ -15,7 +15,7 @@ async function uploadImage (e: Event) {
     .catch((err) => alert('Failed to upload image:\n'+ err.data?.message))
 }
 
-async function deleteImage (pathname: string) {
+async function deleteImage (pathname) {
   await $fetch(`/api/images/${pathname}`, { method: 'DELETE' })
   await refresh()
 }

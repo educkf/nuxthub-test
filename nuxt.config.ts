@@ -22,7 +22,7 @@ export default defineNuxtConfig({
       // Enable Server API documentation within NuxtHub
       openAPI: true,
       tasks: true
-    }
+    },
   },
   // Development
   devtools: { enabled: true },
