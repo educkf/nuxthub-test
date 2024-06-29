@@ -1,9 +1,10 @@
 <script setup lang="ts">
-const { data: messages, refresh } = await useFetch('/api/messages')
 const newMessage = reactive({
   title: '',
   text: ''
 })
+
+const { data: messages, refresh } = await useFetch('/api/messages')
 
 async function sendMessage (){
   if (!newMessage.title || !newMessage.text)
@@ -16,7 +17,9 @@ async function sendMessage (){
       text: newMessage.text
     }
   })
-  newMessage.value = ''
+  newMessage.title = ''
+  newMessage.text = ''
+
   await refresh()
 }
 </script>
